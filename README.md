@@ -21,7 +21,9 @@ Firefox based browsers are not supported right now. Working on it
 
 ### Verification
 
-Visit [https://codeforces.com/profile/garro](https://codeforces.com/profile/garro) to verify if the extension is working correctly. For example, this user has 9 skipped solutions.
+Visit [https://codeforces.com/profile/garro](https://codeforces.com/profile/garro) to verify if the extension is working correctly. This user has 9 skipped solutions. Here's how the profile would look
+
+![Working example](https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/7f9bb5ef-d6f1-4bed-af8c-0965857fd8f8)
 
 ### Feedback
 
