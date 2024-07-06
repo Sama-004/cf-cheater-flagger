@@ -1,6 +1,5 @@
-//const url = 'https://codeforces.com/api/user.status?handle=sama004';
-//chrome.action.onClicked.addListener((tab) => {
-const url = 'https://codeforces.com/api/user.status?handle=Sajal_singh24';
+const username = window.location.pathname.split('/').pop();
+const url = `https://codeforces.com/api/user.status?handle=${username}`;
 
 let count=0;
 fetch(url)
@@ -21,4 +20,3 @@ fetch(url)
   .catch(error => {
     console.error('Error:', error);
   });
-//})

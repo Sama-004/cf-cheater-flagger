@@ -2,10 +2,10 @@
   "manifest_version": 3,
   "name": "Codeforces Verdict Checker",
   "version": "1.0",
-  "description": "Fetch and log WRONG_ANSWER verdicts from Codeforces",
+  "description": "Fetch and log skipped verdicts from Codeforces",
   "permissions": [
     "activeTab",
-    "https://codeforces.com/*"
+    "scripting"
   ],
   "background": {
     "service_worker": "background.js"
@@ -15,7 +15,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://codeforces.com/*"],
+      "matches": ["https://codeforces.com/profile/*"],
       "js": ["content.js"]
     }
   ]
