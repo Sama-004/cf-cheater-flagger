@@ -31,4 +31,3 @@ This extension is actively under development. Any feedback and suggestions are g
 
 ---
 
-This version provides clear, step-by-step instructions and ensures grammatical correctness.
