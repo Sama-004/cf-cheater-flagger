@@ -1,5 +1,6 @@
 
 ---
+Firefox based browsers are not supported right now. Working on it
 
 ### Installation Guide for CF Cheater Flagger Chrome Extension
 
