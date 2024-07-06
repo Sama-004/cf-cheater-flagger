@@ -5,23 +5,19 @@
   "description": "Fetch and log WRONG_ANSWER verdicts from Codeforces",
   "permissions": [
     "activeTab",
-    "https://codeforces.com/profile/*"
+    "https://codeforces.com/*"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
-    }
+    "default_title": "Check Codeforces Verdicts"
   },
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  }
+  "content_scripts": [
+    {
+      "matches": ["https://codeforces.com/*"],
+      "js": ["content.js"]
+    }
+  ]
 }
 
