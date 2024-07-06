@@ -1,15 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Codeforces Verdict Checker",
+  "name": "Codeforces Cheater Flagger",
   "version": "1.0",
-  "description": "Fetch and log skipped verdicts from Codeforces",
+  "description": "Easily identify cheaters on Codeforces",
   "permissions": [
     "activeTab",
     "scripting"
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
   "action": {
     "default_title": "Check Codeforces Verdicts"
   },
@@ -18,6 +15,9 @@
       "matches": ["https://codeforces.com/profile/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+    "permissions":[
+        "storage"
+    ]
 }
 
