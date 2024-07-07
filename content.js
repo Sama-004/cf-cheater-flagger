@@ -43,6 +43,7 @@ fetch(url)
       if (cheater) {
         const infoDiv = document.querySelector(".info");
 
+        //This is for adding the clown badge
         const badgeDiv = document.createElement("div");
         badgeDiv.className = "badge";
 
@@ -55,8 +56,10 @@ fetch(url)
 
         const firstChild = infoDiv.firstElementChild;
         if (firstChild) {
-          firstChild.classList.add("main-info-has-badge");
+          firstChild.classList.add("main-info-has-badge"); // add predefined styles for the badge
         }
+
+        // Change the user avatar
         const imgElement = document.querySelector(
           ".title-photo > div > div > div > img",
         );
@@ -67,11 +70,20 @@ fetch(url)
           imgElement.height = 200;
         }
         infoDiv.insertBefore(badgeDiv, firstChild);
+        // This changes user rank to cheater
         let rank = document.getElementsByClassName("user-rank");
         for (let i = 0; i < rank.length; i++) {
           rank[i].innerHTML = "Cheater";
           rank[i].style.color = "gray";
           rank[i].style.fontWeight = "bold";
+        }
+        // This changes username color
+        const name = document.querySelector(".main-info > h1> a.rated-user");
+        if (name) {
+          console.log(name);
+          name.style.backgroundColor = "black";
+          name.title = `Cheater ${username}`;
+          name.style.setProperty("color", "white", "important");
         }
       }
     } else {

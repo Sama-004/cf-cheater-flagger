@@ -12,11 +12,7 @@
    ``` bash
    git clone https://github.com/Sama-004/cf-cheater-flagger
    ```
-2. Go to `about:config` on your firefox browser and search for xpinstall and set `xpinstall.signatures.required` to `false`.
-Here's how your about:config should look like
-![xpinstall](https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/3ef027cc-46b4-411f-865c-d38d625a39ce)
-
-3. Now go to `about:addons` and click on install add-on from file and go to the cloned folder (`cf-cheater-flagger`) and select the cheater.xpi file and click on add
+2. Go to `about:addons` and click on install add-on from file and go to the cloned folder (`cf-cheater-flagger`) and select the `cheater.xpi` file and click on add
 
 4. The extension should now be loaded and ready to use.
 
@@ -40,7 +36,7 @@ Here's how your about:config should look like
 
 Visit [https://codeforces.com/profile/garro](https://codeforces.com/profile/garro)
 
-![Working example](https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/72b0b1a5-2cd5-48ed-b0bd-b93b13a14bb3)
+![Working example](https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/9905690f-7432-4cc1-be74-352b71ce6eaf)
 
 ### Feedback
 
