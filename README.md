@@ -38,15 +38,16 @@ Here's how your about:config should look like
 
 ### Verification
 
-Visit [https://codeforces.com/profile/garro](https://codeforces.com/profile/garro) to verify if the extension is working correctly. This user has 9 skipped solutions in a single contest. Here's how the profile would look
+Visit [https://codeforces.com/profile/garro](https://codeforces.com/profile/garro)
 
-![Working example](https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/7f9bb5ef-d6f1-4bed-af8c-0965857fd8f8)
+![Working example](https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/72b0b1a5-2cd5-48ed-b0bd-b93b13a14bb3)
 
 ### Feedback
 
 This extension is actively under development. Any feedback and suggestions are greatly appreciated.
 <br>
 Discord: sama004
+<br>
 Twitter: [sama__004](https://x.com/sama__004)
 
 

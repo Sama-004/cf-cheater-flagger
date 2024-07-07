@@ -47,10 +47,8 @@ fetch(url)
         badgeDiv.className = "badge";
 
         const badgeImg = document.createElement("img");
-        //badgeImg.src =
-        //"//codeforces.org/s/62007/images/badge-crowdfunding-2020.png";
         badgeImg.src =
-          "https://media.discordapp.net/attachments/1184533374199681034/1259513029335322686/image0.jpg?ex=668bf46a&is=668aa2ea&hm=326a8e08e297b3d59deb1147c1230368cc0a7b140aaf129909da29f9f9ed3ba3&=&format=webp&width=76&height=84";
+          "https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/05943035-384b-4a39-b37e-0f7c3e6d1faa";
 
         badgeImg.title = "Badge of disgrace for cheating on Codeforces";
         badgeDiv.appendChild(badgeImg);
@@ -59,14 +57,14 @@ fetch(url)
         if (firstChild) {
           firstChild.classList.add("main-info-has-badge");
         }
-        // Select the img element by its src attribute or any other suitable selector
         const imgElement = document.querySelector(
           ".title-photo > div > div > div > img",
         );
 
         if (imgElement) {
-          imgElement.src =
-            "https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/fbd68352-3842-4313-9dab-f43a7a557b88";
+          imgElement.src = "https://pbs.twimg.com/media/GFLLhcCWIAAvuLp.jpg";
+          imgElement.width = 200;
+          imgElement.height = 200;
         }
         infoDiv.insertBefore(badgeDiv, firstChild);
         let rank = document.getElementsByClassName("user-rank");
@@ -74,7 +72,6 @@ fetch(url)
           rank[i].innerHTML = "Cheater";
           rank[i].style.color = "gray";
           rank[i].style.fontWeight = "bold";
-          rank[i].style.backgroundColor = "black";
         }
       }
     } else {
