@@ -8,13 +8,9 @@
 ---
 ### Firefox Installation
 
-1. Clone the repository using Git:
-   ``` bash
-   git clone https://github.com/Sama-004/cf-cheater-flagger
-   ```
-2. Go to `about:addons` and click on install add-on from file and go to the cloned folder (`cf-cheater-flagger`) and select the `cheater.xpi` file and click on add
-
-4. The extension should now be loaded and ready to use.
+1. Download the xpi file from  https://github.com/Sama-004/cf-cheater-flagger/releases/download/V1/cheater.xpi
+2. Go to `about:addons` and click on install add-on from file and select the `cheater.xpi` file and click on add
+3. The extension should now be loaded and ready to use.
 
 ### Chrome Installation
 
