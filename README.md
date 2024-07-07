@@ -34,7 +34,7 @@
 
 ### Verification
 
-Visit [https://codeforces.com/profile/garro](https://codeforces.com/profile/garro)
+Visit [https://codeforces.com/profile/Sajal_singh24](https://codeforces.com/profile/Sajal_singh24)
 
 ![Working Example](https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/0310a3e8-71ca-4928-8265-6d1dd70bf922)
 
