@@ -26,7 +26,7 @@ fetch(url)
         }
       });
 
-      console.log("Contests data:", contests);
+      //console.log("Contests data:", contests);
 
       //Cheated if all the solutions are skipped in a contest
       let cheater = false;
@@ -38,16 +38,25 @@ fetch(url)
           break;
         }
       }
-      console.log("Is cheater?", cheater);
+      //console.log("Is cheater?", cheater);
+
       if (cheater) {
-        document.body.style.backgroundColor = "#ff0000";
-        //var elements = document.getElementsByClassName("userbox");
-        let elements = document.getElementsByClassName("roundbox"); //this looks much better(take others opinion before using or maybe add options to the user itself to select what he wants)
-        //also give user the freedom to select/change color from extension options
-        for (let i = 0; i < elements.length; i++) {
-          elements[i].style.backgroundColor = "#ff0000";
-          //#d4312c
+        const infoDiv = document.querySelector(".info");
+
+        const badgeDiv = document.createElement("div");
+        badgeDiv.className = "badge";
+
+        const badgeImg = document.createElement("img");
+        badgeImg.src =
+          "//codeforces.org/s/62007/images/badge-crowdfunding-2020.png";
+        badgeImg.title = "Badge of disgrace for cheating on Codeforces";
+        badgeDiv.appendChild(badgeImg);
+
+        const firstChild = infoDiv.firstElementChild;
+        if (firstChild) {
+          firstChild.classList.add("main-info-has-badge");
         }
+        infoDiv.insertBefore(badgeDiv, firstChild);
         let rank = document.getElementsByClassName("user-rank");
         for (let i = 0; i < rank.length; i++) {
           rank[i].innerHTML = "Cheater";
