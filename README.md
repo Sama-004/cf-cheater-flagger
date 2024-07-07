@@ -1,12 +1,18 @@
+## Table of Contents
+- [Installation](#installation)
+  - [Firefox Installation](#firefox-installation)
+  - [Chrome Installation](#chrome-installation)
+- [Verification](#verification)
+- [Feedback](#feedback)
 
 ---
-Firefox based browsers are not supported right now. Working on it
+### Firefox Installation
 
 1. Clone the repository using Git:
    ``` bash
    git clone https://github.com/Sama-004/cf-cheater-flagger
    ```
-2. Go to `about:config` on your firefox browser and search for xpinstall and set `xpinstall.signatures.required` to `false`
+2. Go to `about:config` on your firefox browser and search for xpinstall and set `xpinstall.signatures.required` to `false`.
 Here's how your about:config should look like
 ![xpinstall](https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/3ef027cc-46b4-411f-865c-d38d625a39ce)
 
@@ -14,7 +20,7 @@ Here's how your about:config should look like
 
 4. The extension should now be loaded and ready to use.
 
-### Installation Guide for CF Cheater Flagger Chrome Extension
+### Chrome Installation
 
 1. Clone the repository using Git:
    ``` bash
@@ -39,6 +45,10 @@ Visit [https://codeforces.com/profile/garro](https://codeforces.com/profile/garr
 ### Feedback
 
 This extension is actively under development. Any feedback and suggestions are greatly appreciated.
+Discord: sama004
+Twitter: [sama__004](https://x.com/sama__004)
+
+
 
 ---
 
