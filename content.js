@@ -16,7 +16,7 @@ fetch(url)
     }
     if (count > 0) {
       //console.log("Style implemented");
-      //document.body.style.backgroundColor = "#ff0000";
+      document.body.style.backgroundColor = "#ff0000";
       //var elements = document.getElementsByClassName("userbox");
       let elements = document.getElementsByClassName("roundbox"); //this looks much better(take others opinion before using or maybe add options to the user itself to select what he wants)
       //also give user the freedom to select/change color from extension options
