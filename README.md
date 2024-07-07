@@ -18,6 +18,9 @@
    ``` bash
    git clone https://github.com/Sama-004/cf-cheater-flagger
    ```
+   or 
+   Get the .zip from https://github.com/Sama-004/cf-cheater-flagger/archive/refs/tags/V1.zip
+
 2. Open Google Chrome and go to `chrome://extensions/`.
 
 3. Enable developer mode using the toggle switch at the top right corner of the page.
