@@ -36,7 +36,8 @@
 
 Visit [https://codeforces.com/profile/garro](https://codeforces.com/profile/garro)
 
-![Working example](https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/9905690f-7432-4cc1-be74-352b71ce6eaf)
+![Working Example](https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/0310a3e8-71ca-4928-8265-6d1dd70bf922)
+
 
 ### Feedback
 
