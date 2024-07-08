@@ -5,6 +5,7 @@
 - [Verification](#verification)
 - [Feedback](#feedback)
 
+### This extension may even flag legit users. Trying to make it better
 ---
 ### Firefox Installation
 
