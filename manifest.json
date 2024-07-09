@@ -1,12 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Codeforces Cheater Flagger",
-  "version": "1.0",
+  "version": "1.5",
   "description": "Easily identify cheaters on Codeforces",
-  "permissions": [
-    "activeTab",
-    "scripting"
-  ],
+  "permissions": ["activeTab", "scripting"],
   "action": {
     "default_title": "Check Codeforces Verdicts"
   },
@@ -16,14 +13,11 @@
       "js": ["content.js"]
     }
   ],
-    "permissions":[
-        "storage"
-    ],
-    "browser_specific_settings": {
-  "gecko": {
-    "id": "{acb33a2f-dd48-4f44-be2e-b5fb608a93b0}",
-    "strict_min_version": "109.0"
+  "permissions": ["storage"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{acb33a2f-dd48-4f44-be2e-b5fb608a93b0}",
+      "strict_min_version": "109.0"
+    }
   }
 }
-}
-
