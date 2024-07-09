@@ -1,30 +1,31 @@
-// intensity is how the profile should be treated.
-// It should be calculated based on the time of submission of skipped submissions.
-function FuckTheProfile() {
-  const infoDiv = document.querySelector(".info");
+const CONTEST_THRESHOLD = 8;
+const RATING_THRESHOLD = 2100;
+
+function FuckTheProfile(username) {
+  const infoDiv = document.querySelector('.info');
 
   // This is for adding the clown badge.
-  const badgeDiv = document.createElement("div");
-  badgeDiv.className = "badge";
+  const badgeDiv = document.createElement('div');
+  badgeDiv.className = 'badge';
 
-  const badgeImg = document.createElement("img");
-  badgeImg.src = "https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/05943035-384b-4a39-b37e-0f7c3e6d1faa";
+  const badgeImg = document.createElement('img');
+  badgeImg.src = 'https://github.com/Sama-004/cf-cheater-flagger/assets/70210929/05943035-384b-4a39-b37e-0f7c3e6d1faa';
 
-  badgeImg.title = "Badge of disgrace for cheating on Codeforces";
+  badgeImg.title = 'Badge of disgrace for cheating on Codeforces';
   badgeDiv.appendChild(badgeImg);
 
   const firstChild = infoDiv.firstElementChild;
   if (firstChild) {
-    firstChild.classList.add("main-info-has-badge"); // add predefined styles for the badge
+    firstChild.classList.add('main-info-has-badge'); // add predefined styles for the badge
   }
 
   // Change the user avatar
   const imgElement = document.querySelector(
-    ".title-photo > div > div > div > img",
+    '.title-photo > div > div > div > img',
   );
 
   if (imgElement) {
-    imgElement.src = "https://pbs.twimg.com/media/GFLLhcCWIAAvuLp.jpg";
+    imgElement.src = 'https://pbs.twimg.com/media/GFLLhcCWIAAvuLp.jpg';
     imgElement.width = 200;
     imgElement.height = 200;
   }
@@ -32,42 +33,39 @@ function FuckTheProfile() {
   infoDiv.insertBefore(badgeDiv, firstChild);
 
   // This changes user rank to cheater
-  let rank = document.getElementsByClassName("user-rank");
+  let rank = document.getElementsByClassName('user-rank');
   for (let i = 0; i < rank.length; i++) {
-    rank[i].innerHTML = "Cheater";
-    rank[i].style.color = "gray";
-    rank[i].style.fontWeight = "bold";
+    rank[i].innerHTML = 'Cheater';
+    rank[i].style.color = 'gray';
+    rank[i].style.fontWeight = 'bold';
   }
 
   // This changes username color
-  const name = document.querySelector(".main-info > h1> a.rated-user");
+  const name = document.querySelector('.main-info > h1> a.rated-user');
   if (name) {
     // console.log(name);
-    name.style.backgroundColor = "black";
+    name.style.backgroundColor = 'black';
     name.title = `Cheater ${username}`;
-    name.style.setProperty("color", "white", "important");
+    name.style.setProperty('color', 'white', 'important');
   }
 }
 
-function isObscureLanguage(language) {
-  const popularLanguages = ['pypy', 'python', 'c++', 'java'];
-  language = language.toLowerCase();
-  return !popularLanguages.some(l => language.includes(l))
-}
-
-function isCheatedContest(submissions) {
+function isCheatedContest(contest, username) {
   // const totalCount = submissions.length;
   const verdictCount = {};
 
-  submissions.forEach((entry) => {
+  contest.forEach((entry) => {
     if (!verdictCount[entry.verdict]) {
       verdictCount[entry.verdict] = 0;
     }
     verdictCount[entry.verdict] += 1;
+    if (entry.verdict === 'SKIPPED') {
+      console.log(`https://codeforces.com/submissions/${username}/contest/${entry.contestId}`)
+    }
   });
 
-  // console.log(submissions[0].contestId, verdictCount);
-  return verdictCount['SKIPPED'] && !verdictCount['OK'];
+  // console.log(contest[0].contestId, verdictCount);
+  return verdictCount['SKIPPED'] && !(verdictCount['OK'] || verdictCount['PARTIAL']);
 }
 
 function groupRelevantSubmissionsByContestId(submissions) {
@@ -82,44 +80,30 @@ function groupRelevantSubmissionsByContestId(submissions) {
   return submissionsByContestId;
 }
 
-function indexOfLatestCheatedContest(submissionsByContestId) {
-  return submissionsByContestId.findIndex(isCheatedContest);
-}
-
 async function getUserRating(username) {
   const url = `https://codeforces.com/api/user.rating?handle=${username}`;
   const response = await fetch(url);
   const data = await response.json();
 
-  if (data.status !== "OK") {
+  if (data.status !== 'OK') {
     throw new Error(data.comment);
   }
 
   return (data.result.length === 0) ? 0 : data.result[data.result.length - 1].newRating;
 }
 
-const CONTEST_THRESHOLD = 8;
-const RATING_THRESHOLD = 2100;
 
-const username = window.location.pathname.replace(/\/+$/, '').split("/").pop();
-
-async function main() {
-  const userRating = await getUserRating(username);
-  // console.log(`${username} is ${userRating} rated`);
-  if (userRating >= RATING_THRESHOLD) {
-    return;
-  }
-
-  let submissionsByContestId = [];
+async function getContests(username) {
+  let contests = [];
   let submissionsFetched = 0;
 
   // Fetch one extra contest to make sure the last contest was fully fetched.
-  for (let from = 1, count = 100; submissionsByContestId.length <= CONTEST_THRESHOLD; from += count) {
+  for (let from = 1, count = 100; contests.length <= CONTEST_THRESHOLD; from += count) {
     const url = `https://codeforces.com/api/user.status?handle=${username}&from=${from}&count=${count}`;
     const response = await fetch(url);
     const data = await response.json();
 
-    if (data.status !== "OK") {
+    if (data.status !== 'OK') {
       throw new Error(data.comment);
     }
 
@@ -128,22 +112,44 @@ async function main() {
     }
 
     submissionsFetched += data.result.length;
-    const newSubmissionsByContestId = groupRelevantSubmissionsByContestId(data.result);
+    const newContests = groupRelevantSubmissionsByContestId(data.result);
 
     // If the first of the new fetched contest is a continuation of an old contest then merge them.
-    if (submissionsByContestId.length !== 0
-      && newSubmissionsByContestId.length !== 0
-      && submissionsByContestId[submissionsByContestId.length - 1][0].contestId === newSubmissionsByContestId[0][0].contestId) {
-      submissionsByContestId[submissionsByContestId.length - 1].push(...newSubmissionsByContestId.shift());
+    if (contests.length !== 0
+      && newContests.length !== 0
+      && contests[contests.length - 1][0].contestId === newContests[0][0].contestId) {
+      contests[contests.length - 1].push(...newContests.shift());
     }
 
-    submissionsByContestId.push(...newSubmissionsByContestId);
+    contests.push(...newContests);
   }
 
   // console.log(`Fetched ${submissionsFetched} submissions`);
-  const index = indexOfLatestCheatedContest(submissionsByContestId);
-  if (index !== -1 && index < CONTEST_THRESHOLD) {
-    FuckTheProfile();
+  return contests;
+}
+
+async function getCheatedContestIndex(username) {
+  const userRating = await getUserRating(username);
+  // console.log(`${username} is ${userRating} rated`);
+  if (userRating >= RATING_THRESHOLD) {
+    return -1;
+  }
+
+  const contests = await getContests(username);
+  // return contests.findIndex(isCheatedContest);
+  return contests.findIndex(contest => isCheatedContest(contest, username));
+}
+
+function isCheaterByIndex(index) {
+  return index !== -1 && index < CONTEST_THRESHOLD;
+}
+
+async function main() {
+  const username = window.location.pathname.replace(/\/+$/, '').split('/').pop();
+
+  const index = await getCheatedContestIndex(username);
+  if (isCheaterByIndex(index)) {
+    FuckTheProfile(username);
   }
 }
 

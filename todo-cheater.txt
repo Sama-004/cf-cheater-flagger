@@ -1,4 +1,0 @@
-extension settings for user to choose how they want to display the cheater and add the documentation of each setting in readme
-make rank 0 and graph 0 (need to check if this is doable or not)
-option: the user can hide the cheaters rank graph from profile and show the contests he has cheated in
-Do something with the rating(making it negative makes sense)
