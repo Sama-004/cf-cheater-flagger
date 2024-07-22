@@ -1,5 +1,4 @@
 const CONTEST_THRESHOLD = 8;
-const RATING_THRESHOLD = 2100;
 
 function FuckTheProfile(username) {
   const infoDiv = document.querySelector('.info');
@@ -80,19 +79,6 @@ function groupRelevantSubmissionsByContestId(submissions) {
   return submissionsByContestId;
 }
 
-async function getUserRating(username) {
-  const url = `https://codeforces.com/api/user.rating?handle=${username}`;
-  const response = await fetch(url);
-  const data = await response.json();
-
-  if (data.status !== 'OK') {
-    throw new Error(data.comment);
-  }
-
-  return (data.result.length === 0) ? 0 : data.result[data.result.length - 1].newRating;
-}
-
-
 async function getContests(username) {
   let contests = [];
   let submissionsFetched = 0;
@@ -129,12 +115,6 @@ async function getContests(username) {
 }
 
 async function getCheatedContestIndex(username) {
-  const userRating = await getUserRating(username);
-  // console.log(`${username} is ${userRating} rated`);
-  if (userRating >= RATING_THRESHOLD) {
-    return -1;
-  }
-
   const contests = await getContests(username);
   // return contests.findIndex(isCheatedContest);
   return contests.findIndex(contest => isCheatedContest(contest, username));
