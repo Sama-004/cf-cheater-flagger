@@ -1,4 +1,4 @@
-const CONTEST_THRESHOLD = 8;
+const CONTEST_THRESHOLD = 1000000000;
 
 function FuckTheProfile(username) {
   const infoDiv = document.querySelector('.info');
